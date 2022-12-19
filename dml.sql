@@ -275,3 +275,30 @@ end;
 $$;
 
 
+-- Profit_evaluation table
+insert into public.profit_evaluation (current_delta, result_delta, current_money, result_money, point_id)
+values (0.03, 0.05, 300, 1200, 5);
+insert into public.profit_evaluation (current_delta, result_delta, current_money, result_money, point_id)
+values (-0.03, -0.1, 250, 750, 5);
+insert into public.profit_evaluation (current_delta, result_delta, current_money, result_money, point_id)
+values (0.5, 0.65, 1000, 3000, 5);
+
+
+-- User_recommended_product table
+insert into public.user_recommended_product (user_id, recommended_product_id, rank) values (1, 10, 1);
+insert into public.user_recommended_product (user_id, recommended_product_id, rank) values (1, 2, 3);
+insert into public.user_recommended_product (user_id, recommended_product_id, rank) values (1, 15, 3);
+insert into public.user_recommended_product (user_id, recommended_product_id, rank) values (3, 11, 1);
+insert into public.user_recommended_product (user_id, recommended_product_id, rank) values (3, 7, 2);
+insert into public.user_recommended_product (user_id, recommended_product_id, rank) values (5, 15, 1);
+
+
+-- User_recommended_point table
+insert into public.user_recommended_point (user_id, recommended_point_id, rank) values (1, 7, 1);
+insert into public.user_recommended_point (user_id, recommended_point_id, rank) values (1, 9, 2);
+insert into public.user_recommended_point (user_id, recommended_point_id, rank) values (11, 3, 1);
+insert into public.user_recommended_point (user_id, recommended_point_id, rank) values (5, 15, 1);
+insert into public.user_recommended_point (user_id, recommended_point_id, rank) values (5, 1, 2);
+insert into public.user_recommended_point (user_id, recommended_point_id, rank) values (5, 4, 3);
+
+

@@ -30,3 +30,8 @@ select * from comment;
 select * from rating;
 
 select * from payment_method;
+
+select * from profit_evaluation;
+
+select * from user_recommended_product;
+select * from user_recommended_point;

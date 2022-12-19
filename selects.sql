@@ -41,3 +41,13 @@ select * from order_audit;
 
 select * from user_statistics;
 select * from point_statistics;
+
+delete from product_order;
+select * from product_order;
+
+
+(select (id) from public.payment_method
+ where public.payment_method.user_id = (
+                                                   select (user_id) from public.order_
+                                                   where public.order_.id = cast(1 as bigint)
+                                                   ))

@@ -310,13 +310,15 @@ values ('open', '2022-11-19 14:18:00', 0, 3, 5);
 
 -- Order_payment table
 insert into public.order_payment (time_accepted, order_id, payment_method_id)
-values ('2022-11-19 14:18:00', cast(1 as bigint), (select (id) from payment_method
+values ('2022-11-19 14:18:00', 1, (select (id) from payment_method
                                                where public.payment_method.user_id = (
                                                    select (user_id) from public.order_
                                                    where public.order_.id = cast(1 as bigint)
                                                    )));
 
 -- Product_order table
+-- delete from public.product_order
+delete from public.product_order where quantity = 3 and order_id = 1 and product_id = 1;
 insert into public.product_order (quantity, order_id, product_id)
 values (3, 1, 1);
 

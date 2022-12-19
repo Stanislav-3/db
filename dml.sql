@@ -76,6 +76,22 @@ end;
 $$;
 
 
+-- Point_related_point table
+do $$
+declare rank int;
+begin
+for i in 1..25 loop
+    rank := 1;
+    for j in i..i+3 loop
+        insert into public.point_related_point (rank, point_id, related_point_id)
+        values (rank, i, j);
+        rank = rank + 1;
+    end loop;
+end loop;
+end;
+$$;
+
+
 -- Admin_account table
 do $$
 declare start int = 1;
@@ -116,12 +132,23 @@ insert into public.auth_group (name) values ('group 1');
 insert into public.auth_group (name) values ('group 2');
 insert into public.auth_group (name) values ('group 3');
 
+insert into public.user_groups (user_id, group_id) values (1 , 1);
+insert into public.user_groups (user_id, group_id) values (1 , 2);
+insert into public.user_groups (user_id, group_id) values (1 , 3);
+insert into public.user_groups (user_id, group_id) values (2 , 1);
+insert into public.user_groups (user_id, group_id) values (3 , 3);
 
 
 -- Auth_permission table
 insert into public.auth_permission (name, codename) values ('Permission name 1', 'Permission codename 1');
 insert into public.auth_permission (name, codename) values ('Permission name 2', 'Permission codename 2');
 insert into public.auth_permission (name, codename) values ('Permission name 3', 'Permission codename 2');
+
+insert into public.auth_group_permissions (group_id, permission_id) values (1, 1);
+insert into public.auth_group_permissions (group_id, permission_id) values (2, 2);
+insert into public.auth_group_permissions (group_id, permission_id) values (3, 1);
+insert into public.auth_group_permissions (group_id, permission_id) values (3, 2);
+insert into public.auth_group_permissions (group_id, permission_id) values (3, 3);
 
 
 -- Product_name table
@@ -132,5 +159,35 @@ do $$ begin
     end loop;
 end;
 $$;
+
+
+-- Brief_comment table
+insert into public.brief_comment (comment, rate) values ('awful service', -0.8);
+insert into public.brief_comment (comment, rate) values ('good service', 0.7);
+insert into public.brief_comment (comment, rate) values ('disgusting food', -0.9);
+insert into public.brief_comment (comment, rate) values ('awesome food', 0.9);
+
+-- Point_brief_comments table
+insert into point_brief_comments (updated_on, point_id) values ('2022-12-19 14:18:00', 1);
+insert into point_brief_comments (updated_on, point_id) values ('2022-12-19 14:18:00', 2);
+insert into point_brief_comments (updated_on, point_id) values ('2022-12-19 14:18:00', 3);
+
+
+-- Point_brief_comments_brief_comments table
+insert into point_brief_comments_brief_comments (point_brief_comments_id, brief_comment_id)
+values (1, 1);
+insert into point_brief_comments_brief_comments (point_brief_comments_id, brief_comment_id)
+values (1, 3);
+insert into point_brief_comments_brief_comments (point_brief_comments_id, brief_comment_id)
+values (2, 2);
+insert into point_brief_comments_brief_comments (point_brief_comments_id, brief_comment_id)
+values (2, 4);
+insert into point_brief_comments_brief_comments (point_brief_comments_id, brief_comment_id)
+values (3, 1);
+insert into point_brief_comments_brief_comments (point_brief_comments_id, brief_comment_id)
+values (3, 4);
+
+
+
 
 

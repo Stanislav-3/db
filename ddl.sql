@@ -87,21 +87,19 @@ create table public.user_
         primary key,
     password  varchar(128) not null,
     last_login timestamp with time zone,
-    is_superuser boolean not null,
     username varchar(150) not null
-        constraint user_username_key unique,
-    is_staff boolean not null,
+             constraint user_username_key unique,
     is_active boolean not null,
     first_name varchar(20) not null,
     last_name varchar(20) not null,
     email varchar(254) not null
-        constraint user_email_key unique,
+          constraint user_email_key unique,
     date_joined timestamp with time zone not null,
     is_platform_admin boolean not null,
     admin_access_id bigint
-        constraint user_admin_access_id_fk_admin_account_id
-            references public.admin_account
-            deferrable initially deferred
+                    constraint user_admin_access_id_fk_admin_account_id
+                    references public.admin_account
+                    deferrable initially deferred
 );
 
 alter table public.user_
@@ -190,7 +188,7 @@ create table public.payment_method
 alter table public.payment_method
     owner to postgres;
 
-create index payment_method_user_id_516719e2
+create index payment_method_user_id_index
     on public.payment_method (user_id);
 
 

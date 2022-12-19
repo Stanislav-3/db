@@ -35,3 +35,9 @@ select * from profit_evaluation;
 
 select * from user_recommended_product;
 select * from user_recommended_point;
+
+select * from order_;
+select * from order_audit;
+
+select * from user_statistics;
+select * from point_statistics;

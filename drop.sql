@@ -32,6 +32,7 @@ drop table if exists point cascade;
 drop table if exists company cascade;
 drop table if exists auth_group cascade;
 drop table if exists test cascade;
+drop table if exists rating cascade;
 
 drop function if exists order_trigger_function() cascade;
 drop function if exists product_order_trigger_function() cascade;

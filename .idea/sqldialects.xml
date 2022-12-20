@@ -3,6 +3,7 @@
   <component name="SqlDialectMappings">
     <file url="file://$PROJECT_DIR$/ddl.sql" dialect="PostgreSQL" />
     <file url="file://$PROJECT_DIR$/drop.sql" dialect="PostgreSQL" />
+    <file url="file://$PROJECT_DIR$/selects.sql" dialect="PostgreSQL" />
     <file url="PROJECT" dialect="PostgreSQL" />
   </component>
 </project>
